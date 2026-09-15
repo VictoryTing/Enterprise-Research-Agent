@@ -11,9 +11,9 @@ async def health() -> dict:
     return {"status": "ok", "service": "enterprise-research-agent"}
 
 
-@router.post("/research", response_model=ResearchResponse)
+@router.post("/research", response_model=ResearchResponse, status_code=202)
 async def research(request: ResearchRequest) -> dict:
-    context = await research_agent.run(request.query)
+    context = await research_agent.start(request.query)
     return context.to_dict()
 
 

@@ -1,5 +1,6 @@
 from app.memory.evidence import Evidence, EvidenceStore
 from app.observability.context import ResearchContext, ResearchTask, RunStatus, TaskStatus
+from app.observability.tracing import TraceSpan
 
 
 def test_evidence_store_deduplicates_urls() -> None:
@@ -18,3 +19,16 @@ def test_research_context_serializes_run_state() -> None:
     assert result["status"] == RunStatus.COMPLETED.value
     assert result["tasks"][0]["status"] == TaskStatus.COMPLETED.value
     assert result["report"] == "A cited report"
+
+
+def test_trace_span_records_duration_and_failure() -> None:
+    context = ResearchContext(query="Trace a run")
+    with TraceSpan(context, "tool.search_web", "tool", task_id=1) as span:
+        span.metadata["attempts"] = 2
+        span.mark_error("Tool timed out")
+
+    trace = context.to_dict()["trace"][0]
+    assert trace["name"] == "tool.search_web"
+    assert trace["status"] == "error"
+    assert trace["metadata"]["attempts"] == 2
+    assert trace["duration_ms"] >= 0

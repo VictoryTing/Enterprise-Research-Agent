@@ -1,0 +1,157 @@
+{
+  "documents": [
+    {
+      "evidence_id": "eval_nim",
+      "task_id": 1,
+      "title": "NVIDIA NIM Microservices",
+      "url": "https://example.com/nvidia-nim",
+      "content": "NVIDIA NIM provides optimized inference microservices for deploying generative AI models through standard APIs."
+    },
+    {
+      "evidence_id": "eval_triton",
+      "task_id": 1,
+      "title": "NVIDIA Triton Inference Server",
+      "url": "https://example.com/nvidia-triton",
+      "content": "NVIDIA Triton Inference Server serves machine learning models from multiple frameworks and supports concurrent model execution."
+    },
+    {
+      "evidence_id": "eval_blackwell",
+      "task_id": 1,
+      "title": "NVIDIA Blackwell Platform",
+      "url": "https://example.com/nvidia-blackwell",
+      "content": "The NVIDIA Blackwell platform provides GPU computing infrastructure for training and running large AI models."
+    },
+    {
+      "evidence_id": "eval_h100",
+      "task_id": 1,
+      "title": "NVIDIA H100 Tensor Core GPU",
+      "url": "https://example.com/nvidia-h100",
+      "content": "The NVIDIA H100 Tensor Core GPU accelerates AI training, high performance computing and large-scale inference workloads."
+    },
+    {
+      "evidence_id": "eval_guardrails",
+      "task_id": 1,
+      "title": "NVIDIA NeMo Guardrails",
+      "url": "https://example.com/nemo-guardrails",
+      "content": "NeMo Guardrails helps developers control the safety, topics and behavior of conversational AI applications."
+    },
+    {
+      "evidence_id": "eval_nemo_framework",
+      "task_id": 1,
+      "title": "NVIDIA NeMo Framework",
+      "url": "https://example.com/nemo-framework",
+      "content": "NVIDIA NeMo Framework supports the training, customization and fine-tuning of large language models."
+    },
+    {
+      "evidence_id": "eval_cuda",
+      "task_id": 1,
+      "title": "NVIDIA CUDA Platform",
+      "url": "https://example.com/nvidia-cuda",
+      "content": "CUDA is a parallel computing platform and programming model used to accelerate applications on NVIDIA GPUs."
+    },
+    {
+      "evidence_id": "eval_ai_enterprise",
+      "task_id": 1,
+      "title": "NVIDIA AI Enterprise",
+      "url": "https://example.com/nvidia-ai-enterprise",
+      "content": "NVIDIA AI Enterprise is an enterprise software platform for developing, deploying and operating production AI applications."
+    },
+    {
+      "evidence_id": "eval_api_gateway",
+      "task_id": 1,
+      "title": "Enterprise API Gateway",
+      "url": "https://example.com/api-gateway",
+      "content": "An API gateway manages authentication, routing, rate limits and access control for enterprise microservices."
+    },
+    {
+      "evidence_id": "eval_kubernetes",
+      "task_id": 1,
+      "title": "Kubernetes Container Platform",
+      "url": "https://example.com/kubernetes",
+      "content": "Kubernetes manages containerized applications and supports scalable deployment of distributed services."
+    },
+    {
+      "evidence_id": "eval_apple",
+      "task_id": 1,
+      "title": "Apple Smartphone Release",
+      "url": "https://example.com/apple-phone",
+      "content": "Apple announced a new smartphone with an improved camera and display."
+    },
+    {
+      "evidence_id": "eval_database",
+      "task_id": 1,
+      "title": "Enterprise Database",
+      "url": "https://example.com/database",
+      "content": "A relational database stores structured enterprise data and supports SQL queries."
+    },
+    {
+      "evidence_id": "eval_weather",
+      "task_id": 1,
+      "title": "Weather Forecast",
+      "url": "https://example.com/weather",
+      "content": "The weather forecast predicts rain and lower temperatures during the weekend."
+    }
+  ],
+  "queries": [
+    {
+      "query_id": "q1",
+      "query": "Which NVIDIA product provides optimized AI inference microservices through standard APIs?",
+      "relevant_ids": ["eval_nim"]
+    },
+    {
+      "query_id": "q2",
+      "query": "Which NVIDIA platform provides GPU infrastructure for training and running large AI models?",
+      "relevant_ids": ["eval_blackwell"]
+    },
+    {
+      "query_id": "q3",
+      "query": "哪个 NVIDIA 产品可以限制对话主题并控制对话式 AI 的安全和行为？",
+      "relevant_ids": ["eval_guardrails"]
+    },
+    {
+      "query_id": "q4",
+      "query": "NVIDIA 用于通过标准 API 部署生成式 AI 模型的推理微服务是什么？",
+      "relevant_ids": ["eval_nim"]
+    },
+    {
+      "query_id": "q5",
+      "query": "Which NVIDIA server can serve models from several machine learning frameworks?",
+      "relevant_ids": ["eval_triton"]
+    },
+    {
+      "query_id": "q6",
+      "query": "Which NVIDIA framework is used to customize and fine-tune large language models?",
+      "relevant_ids": ["eval_nemo_framework"]
+    },
+    {
+      "query_id": "q7",
+      "query": "哪个 NVIDIA 工具是 GPU 并行计算平台和编程模型？",
+      "relevant_ids": ["eval_cuda"]
+    },
+    {
+      "query_id": "q8",
+      "query": "Which NVIDIA offering is an enterprise software platform for operating production AI applications?",
+      "relevant_ids": ["eval_ai_enterprise"]
+    },
+    {
+      "query_id": "q9",
+      "query": "Which system manages authentication, routing and rate limits for microservices?",
+      "relevant_ids": ["eval_api_gateway"]
+    },
+    {
+      "query_id": "q10",
+      "query": "什么平台负责管理和扩展容器化的分布式应用？",
+      "relevant_ids": ["eval_kubernetes"]
+    },
+    {
+      "query_id": "q11",
+      "query": "Which NVIDIA GPU accelerates AI training and high performance computing workloads?",
+      "relevant_ids": ["eval_h100"]
+    },
+    {
+      "query_id": "q12",
+      "query": "I need to deploy a model built with different ML frameworks using concurrent execution. Which NVIDIA product should I use?",
+      "relevant_ids": ["eval_triton"]
+    }
+  ]
+}

@@ -19,3 +19,18 @@ htmlcov/
 # OS
 .DS_Store
 Thumbs.db
+
+
+# Additional local environment files
+.env.local
+.env.*.local
+
+# Keep the public environment template
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# Generated evaluation reports
+eval/results/*.json

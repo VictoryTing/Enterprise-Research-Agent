@@ -8,7 +8,7 @@ from dataclasses import dataclass
 @dataclass
 class TextChunk:
     chunk_id: str
-    evidence_id: int
+    evidence_id: str
     text: str
     start: int
     end: int
@@ -30,7 +30,7 @@ class TextChunker:
 
     def split(
         self,
-        evidence_id: int,
+        evidence_id: str,
         text: str,
     ) -> list[TextChunk]:
 

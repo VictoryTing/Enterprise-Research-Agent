@@ -23,6 +23,17 @@ class TaskResponse(BaseModel):
     error: str | None = None
 
 
+class TraceResponse(BaseModel):
+    name: str
+    component: str
+    duration_ms: float
+    status: str
+    task_id: int | None = None
+    metadata: dict[str, str | int | float | bool]
+    error: str | None = None
+    timestamp: str
+
+
 class ResearchResponse(BaseModel):
     run_id: str
     query: str
@@ -30,6 +41,7 @@ class ResearchResponse(BaseModel):
     goal: str | None = None
     tasks: list[TaskResponse]
     evidence: list[EvidenceResponse]
+    trace: list[TraceResponse]
     report: str | None = None
     error: str | None = None
     created_at: str

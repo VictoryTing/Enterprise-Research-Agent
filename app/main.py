@@ -1,4 +1,7 @@
+from pathlib import Path
+
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 
 from app.api.routes import router
 
@@ -21,3 +24,11 @@ async def health():
 
 
 app.include_router(router)
+
+# The product demo is intentionally served by the same FastAPI process as the
+# API so it has no CORS or separate deployment configuration during Phase 1.
+app.mount(
+    "/",
+    StaticFiles(directory=Path(__file__).parent / "web", html=True),
+    name="web",
+)

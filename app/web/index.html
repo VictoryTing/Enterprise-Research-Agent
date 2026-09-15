@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Enterprise Research Agent</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <p class="eyebrow">Evidence-grounded research workflow</p>
+        <h1>Enterprise Research Agent</h1>
+        <p class="subtitle">把研究计划、检索证据、推理轨迹和最终结论放在同一个可追溯的工作区。</p>
+      </header>
+
+      <section class="query-panel" aria-labelledby="research-heading">
+        <div>
+          <h2 id="research-heading">发起研究</h2>
+          <p>输入一个企业、行业或竞品问题，Agent 将自动规划并生成带来源的研究报告。</p>
+        </div>
+        <form id="research-form">
+          <label class="sr-only" for="query">研究问题</label>
+          <textarea id="query" name="query" rows="3" required minlength="3" placeholder="例如：分析英伟达的数据中心业务增长、竞争格局和主要风险"></textarea>
+          <div class="form-footer">
+            <span id="form-hint">建议聚焦一个企业或一个决策问题</span>
+            <button id="submit-button" type="submit">开始研究</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="run-summary" class="summary is-hidden" aria-live="polite">
+        <div>
+          <span class="label">运行 ID</span>
+          <code id="run-id">—</code>
+        </div>
+        <div>
+          <span class="label">状态</span>
+          <span id="run-status" class="status">—</span>
+        </div>
+        <div>
+          <span class="label">证据</span>
+          <strong id="evidence-count">0</strong>
+        </div>
+        <div>
+          <span class="label">耗时</span>
+          <strong id="run-duration">—</strong>
+        </div>
+      </section>
+      <p id="run-error" class="run-error is-hidden" role="alert"></p>
+
+      <section id="empty-state" class="empty-state">
+        <h2>等待一个研究问题</h2>
+        <p>结果会按研究过程组织，而不是只输出一段无法追溯的回答。</p>
+      </section>
+
+      <section id="results" class="results is-hidden" aria-live="polite">
+        <nav class="tabs" aria-label="研究结果视图">
+          <button class="tab is-active" type="button" data-panel="report">报告</button>
+          <button class="tab" type="button" data-panel="plan">计划</button>
+          <button class="tab" type="button" data-panel="evidence">证据</button>
+          <button class="tab" type="button" data-panel="trace">运行轨迹</button>
+        </nav>
+
+        <section id="panel-report" class="result-panel" data-result-panel="report">
+          <div class="panel-heading"><h2>研究报告</h2><span id="report-goal" class="muted"></span></div>
+          <article id="report-content" class="report"></article>
+        </section>
+
+        <section id="panel-plan" class="result-panel is-hidden" data-result-panel="plan">
+          <div class="panel-heading"><h2>研究计划</h2><span class="muted">任务按依赖关系顺序执行</span></div>
+          <ol id="task-list" class="task-list"></ol>
+        </section>
+
+        <section id="panel-evidence" class="result-panel is-hidden" data-result-panel="evidence">
+          <div class="panel-heading"><h2>证据来源</h2><span class="muted">检索结果经过去重后入库</span></div>
+          <div id="evidence-list" class="evidence-list"></div>
+        </section>
+
+        <section id="panel-trace" class="result-panel is-hidden" data-result-panel="trace">
+          <div class="panel-heading"><h2>运行轨迹</h2><span class="muted">用于定位慢调用、失败与重试</span></div>
+          <div class="table-wrap"><table><thead><tr><th>步骤</th><th>组件</th><th>任务</th><th>耗时</th><th>状态</th><th>附加信息</th></tr></thead><tbody id="trace-list"></tbody></table></div>
+        </section>
+      </section>
+    </main>
+    <script src="/app.js?v=2"></script>
+  </body>
+</html>

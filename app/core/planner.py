@@ -4,6 +4,7 @@ from typing import List
 from pydantic import BaseModel, ValidationError
 
 from app.core.llm import llm_client
+from app.core.config import MAX_RESEARCH_TASKS
 
 
 class ResearchPlan(BaseModel):
@@ -26,7 +27,7 @@ Given a user's research question, create a concise and actionable research plan.
 
 Requirements:
 1. Clearly define the research goal.
-2. Break the research into 3-5 concrete tasks.
+2. Break the research into 2-3 concrete tasks.
 3. Each task must be specific and actionable.
 4. Tasks should focus on information that needs to be searched,
    compared, verified, or analyzed.
@@ -57,7 +58,9 @@ Return JSON with exactly this structure:
 
     try:
         data = json.loads(response)
-        return ResearchPlan(**data)
+        plan = ResearchPlan(**data)
+        plan.tasks = plan.tasks[:MAX_RESEARCH_TASKS]
+        return plan
 
     except (json.JSONDecodeError, ValidationError) as e:
         raise ValueError(
