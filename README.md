@@ -1,4 +1,5 @@
 # Enterprise Research Agent
+[![Tests](https://github.com/VictoryTing/Enterprise-Research-Agent/actions/workflows/tests.yml/badge.svg)](https://github.com/VictoryTing/Enterprise-Research-Agent/actions/workflows/tests.yml)
 
 An evidence-grounded enterprise research agent that plans complex research tasks, collects web evidence, retrieves relevant information, executes research subtasks, and produces structured reports with traceable sources.
 
