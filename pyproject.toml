@@ -25,3 +25,13 @@ reranker = [
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+include = ["app*", "eval*"]
+exclude = [
+    "tests*",
+    "docs*",
+    "scripts*",
+    "deployment*",
+    "mcp_servers*",
+]
